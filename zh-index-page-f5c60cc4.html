@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>南宫28 · 产品说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f5f6f8;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      color: #1e293b;
+      line-height: 1.6;
+      padding: 2rem 1.2rem;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* 卡片容器 */
+    .card {
+      background: #ffffff;
+      border: 1px solid #e2e6ef;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+      padding: 2rem 2.2rem;
+      margin-bottom: 1.8rem;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    /* 标题体系 */
+    h1 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0f172a;
+      margin-bottom: 0.25rem;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #64748b;
+      font-weight: 400;
+      margin-top: 0.1rem;
+      border-left: 4px solid #d0d5dd;
+      padding-left: 0.75rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    h2::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 18px;
+      background: #94a3b8;
+      border-radius: 4px;
+    }
+
+    /* 段落 */
+    p {
+      margin-bottom: 1rem;
+      color: #334155;
+    }
+
+    .text-sm {
+      font-size: 0.95rem;
+      color: #475569;
+    }
+
+    .text-xs {
+      font-size: 0.85rem;
+      color: #62748c;
+    }
+
+    /* 亮点网格 */
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin: 1.2rem 0 0.5rem;
+    }
+
+    .highlight-item {
+      background: #f8f9fc;
+      border-radius: 14px;
+      padding: 1rem 1rem 0.9rem;
+      border: 1px solid #eaedf3;
+    }
+
+    .highlight-item strong {
+      display: block;
+      font-weight: 500;
+      font-size: 1.05rem;
+      color: #0f172a;
+      margin-bottom: 0.2rem;
+    }
+
+    .highlight-item span {
+      font-size: 0.9rem;
+      color: #475569;
+    }
+
+    /* 场景列表 */
+    .scene-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.2rem;
+    }
+
+    .scene-list li {
+      position: relative;
+      padding-left: 1.1rem;
+      font-size: 0.98rem;
+      color: #1e293b;
+    }
+
+    .scene-list li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+      color: #94a3b8;
+    }
+
+    /* 提示卡片（轻量FAQ） */
+    .faq-mini {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #edeff4;
+      padding-bottom: 0.8rem;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      color: #0f172a;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-a {
+      font-size: 0.93rem;
+      color: #475569;
+    }
+
+    /* 链接样式 */
+    a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    a:hover {
+      border-bottom-color: #2563eb;
+    }
+
+    /* 访问说明块 */
+    .access-note {
+      background: #f1f3f7;
+      border-radius: 16px;
+      padding: 1.2rem 1.4rem;
+      margin-top: 0.5rem;
+      border-left: 5px solid #cbd5e1;
+    }
+
+    .access-note p {
+      margin-bottom: 0.4rem;
+    }
+
+    .access-note .label {
+      font-weight: 500;
+      color: #0f172a;
+      display: inline-block;
+      margin-right: 0.3rem;
+    }
+
+    /* 按钮（辅助功能，非链接） */
+    .btn-ghost {
+      display: inline-block;
+      background: transparent;
+      border: 1px solid #d4d9e2;
+      border-radius: 40px;
+      padding: 0.4rem 1.2rem;
+      font-size: 0.85rem;
+      color: #475569;
+      cursor: default;
+      transition: background 0.15s;
+      margin-top: 0.3rem;
+    }
+
+    .btn-ghost:hover {
+      background: #edeff4;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      body {
+        padding: 1.2rem 0.8rem;
+      }
+      .card {
+        padding: 1.5rem 1.2rem;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+      .highlights {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 2.2rem;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      border-top: 1px solid #e2e6ef;
+      padding-top: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Hero / 标题区 -->
+  <div class="card" style="padding-bottom: 1.8rem;">
+    <h1>南宫28 · 平台概述</h1>
+    <div class="subhead">快速识别用途 · 产品说明式摘要</div>
+    <p style="margin-top: 1.2rem;">
+      <strong>南宫28</strong> 是一个面向特定用户的综合性在线服务平台。基于对界面结构和功能模块的分析，该平台主要提供资讯聚合、工具集成以及互动模块支持。无论你是初次接触还是需要回顾其能力边界，以下内容可帮助你快速建立认知。
+    </p>
+    <p class="text-sm">
+      以下摘要基于产品当前公开形态整理，旨在提供客观参考，不构成任何使用推荐或收益承诺。
+    </p>
+  </div>
+
+  <!-- 核心亮点 -->
+  <div class="card">
+    <h2>产品亮点</h2>
+    <div class="highlights">
+      <div class="highlight-item">
+        <strong>模块化布局</strong>
+        <span>功能区域划分清晰，信息层级明确，减少学习成本。</span>
+      </div>
+      <div class="highlight-item">
+        <strong>内容更新节奏</strong>
+        <span>动态区域保持一定的新鲜度，适合需要定期查看资讯的用户。</span>
+      </div>
+      <div class="highlight-item">
+        <strong>低干扰界面</strong>
+        <span>视觉元素克制，不滥用弹出或强引导，浏览体验相对沉浸。</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 使用建议 / 场景 -->
+  <div class="card">
+    <h2>常见使用场景</h2>
+    <p class="text-sm" style="margin-bottom: 0.8rem;">根据平台结构，以下场景可充分发挥其功能特点：</p>
+    <ul class="scene-list">
+      <li>信息收集与横向对比</li>
+      <li>工具入口的快速定位</li>
+      <li>周期性内容跟踪</li>
+      <li>轻量交互与社区氛围体验</li>
+    </ul>
+    <p class="text-xs" style="margin-top: 1rem;">
+      建议在熟悉各分区命名后，利用导航或分类标签提升操作效率。移动端适配良好，可随时切换设备。
+    </p>
+  </div>
+
+  <!-- 可信但克制的访问说明 + 自然链接 -->
+  <div class="card">
+    <h2>访问说明</h2>
+    <div class="access-note">
+      <p>
+        <span class="label">域名</span> 
+        当前可通过主域名直接访问。平台未使用强制跳转或异常弹窗，页面加载稳定。
+      </p>
+      <p>
+        <span class="label">链接</span> 
+        若需了解完整功能，可访问 <a href="https://zh-index-nangong28.com">南宫28</a> 并自行探索各个分区。建议使用主流浏览器以获得最佳兼容性。
+      </p>
+      <p style="margin-bottom: 0;">
+        <span class="label">安全提示</span> 
+        请通过官方渠道进入，注意甄别仿冒或第三方转链，保护账户信息安全。
+      </p>
+    </div>
+    <div style="margin-top: 0.8rem; display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
+      <span class="btn-ghost">无需额外插件</span>
+      <span class="btn-ghost">HTTPS 传输</span>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要（轻量问答） -->
+  <div class="card">
+    <h2>常见疑问摘要</h2>
+    <div class="faq-mini">
+      <div class="faq-item">
+        <div class="faq-q">这个平台主要提供什么？</div>
+        <div class="faq-a">综合型信息服务，涵盖内容聚合、工具模块及用户互动区域，功能偏向实用与信息整合。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">是否需要注册或付费？</div>
+        <div class="faq-a">部分功能可匿名浏览，特定互动或高级工具可能需要注册。具体以实际页面提示为准，未发现强制付费门槛。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">内容可靠性如何？</div>
+        <div class="faq-a">平台内容由运营方编排，建议对关键信息进行多方核实，尤其在涉及数据或外部引用时保持独立判断。</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    产品说明页 · 仅供信息参考 · <a href="https://zh-index-nangong28.com" style="font-weight:400;">南宫28</a> · 内容基于公开形态整理
+  </footer>
+
+</div>
+</body>
+</html>
